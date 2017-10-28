@@ -9,4 +9,10 @@ def index():
 def account():
     return render_template('account.html')
 
+@app.route('/result', methods=["post"])
+def info():
+    print request.form['first_name']
+    print request.form['last_name']
+    pass
+
 app.run(debug=True)

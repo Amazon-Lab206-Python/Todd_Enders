@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Document</title>
 </head>
 <body>
     <h1>Hello WOrld</h1>
     <a href="/account">Account</a>
+    <form action="/result" method="post">
+        First Name: <input type="text" name="first_name">
+        Last Name: <input type="text" name="last_name">
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
