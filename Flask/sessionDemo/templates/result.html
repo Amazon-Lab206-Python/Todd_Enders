@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Form submitted: {{session['counter']}} times</h2>
+    {% if session['form_data']['first_name'] == 'Todd' %}
+        {% for i in range(2) %}
+        <h1>First Name: {{ session['form_data']['first_name'] }}</h1>
+        {% endfor %}
+    {% else %}
+        <h1>Something Else</h1>
+    {% endif %}
+</body>
+</html>
