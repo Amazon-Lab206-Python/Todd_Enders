@@ -1,0 +1,20 @@
+span {
+    outline: 2px solid black;
+}
+form {
+    display: inline-block;
+    vertical-align: top;
+    width: 22%;
+    outline: 2px solid black;
+}
+.activities {
+    border: 5px solid black;
+    height: 100px;
+    overflow-y: scroll;
+}
+.win {
+    color: green;
+}
+.lose {
+    color: red;
+}
