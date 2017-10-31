@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {{ session['winner'] }}
+    <h1>Welcome</h1>
+    <p>guess between 1-100</p>
+    <form action="/guess" method="post">
+        <input type="number" min="1" max="100" name="guess">
+        <input type="submit" value="Guess">
+    </form>
+    {% if session['result'] == "high" %}
+    <p>Too High!</p>
+    {% elif session['result'] == "low" %}
+    <p>Too Low!</p>
+    {% elif session['result'] == "win" %}
+    <div>
+        <p>Just right!</p>
+        <form action="/replay" method="post">
+            <input type="submit" value="Play again!">
+        </form>
+    </div>
+    {% endif %}
+</body>
+</html>
