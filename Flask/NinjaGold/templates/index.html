@@ -6,6 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Ninja Golds</title>
+    <style>
+    span {
+    outline: 2px solid black;
+}
+form {
+    display: inline-block;
+    vertical-align: top;
+    width: 22%;
+    outline: 2px solid black;
+}
+.activities {
+    border: 5px solid black;
+    height: 100px;
+    overflow-y: scroll;
+}
+.win {
+    color: green;
+}
+.lose {
+    color: red;
+}
+    </style>
 </head>
 <body>
     <h1>Welcome to Ninja Gold</h1>
