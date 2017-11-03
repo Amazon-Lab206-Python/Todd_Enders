@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success Page</title>
+</head>
+<body>
+    <h2>The email address you entered ( {{ last_email }} ) is a VALID email address! Thank you!</h2>
+    <h2>Email Addresses Entered:</h2>
+    {% for email in emails %}
+        <p>{{email['email'] }} {{ email['created_at'] }}</p>
+    {% endfor %}
+</body>
+</html>
