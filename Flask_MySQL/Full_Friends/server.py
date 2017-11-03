@@ -19,4 +19,5 @@ def create():
 
     mysql.query_db(query, data)
     return redirect('/')
+
 app.run(debug=True)
