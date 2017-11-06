@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Coding Dojo Wall<span>Welcome {{ session['first_name'] }}</span><a href="/logout" class="button button-primary">Logout</a></h2>
+    <div class="container">
+        <form action="/messages/create" method="post">
+            <div>
+                <label for="message">Post a message</label>
+                <textarea name="message" id="message" class="u-full-width"></textarea>
+            </div>
+            <input type="submit" class="button-primary" value="Post a Message">
+        </form>
+
+    {% for message in messages %}
+        <div class="row">
+            <h5>{{ message['first_name'] }} {{ message['last_name'] }} - {{ message['created_at'].strftime('%B %d %Y') }}</h5>
+            <p class="eleven columns offset-by-one">{{ message['message'] }}</p>
+        </div>
+        
+        {% for comment in comments %}
+            {% if comment['message_id'] == message['id'] %}
+            <div class="row">
+                <h6 class="ten columns offset-by-two">{{ comment['first_name'] }} {{ comment['last_name'] }} - {{ comment['created_at'].strftime('%b %d %Y') }}</h6>
+                <p class="ten columns offset-by-two">{{ comment['comment'] }}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+        
+        <div class="row">
+            <form action="/comments/create" method="post" class="ten columns offset-by-two">
+                <input type="hidden" name="message_id" value="{{ message['id'] }}">
+                <div>
+                    <label for="comment">Post a comment</label>
+                    <textarea name="comment" id="comment" class="u-full-width"></textarea>
+                </div>
+                <input type="submit" class="button-primary" value="Post a Comment">
+            </form>
+        </div>
+    {% endfor %}
+        
+
+    </div>
+</body>
+</html>

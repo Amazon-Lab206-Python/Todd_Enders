@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Reg</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="six columns">
+        <h4>Register</h4>
+        <form action="/register" method="post">
+            <div class="row">
+                <div class="six columns">
+                    <label for="first_name">First Name</label>
+                    <input class="u-full-width" type="text" id="first_name" name="first_name">
+                </div>
+                <div class="six columns">
+                    <label for="last_name">Last Name</label>
+                    <input class="u-full-width" type="text" id="last_name" name="last_name">
+                </div>
+            </div>
+            <div class="row">
+                <label for="email">Email Address</label>
+                <input class="u-full-width" type="text" id="email" name="email">
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="password">Password</label>
+                    <input class="u-full-width" type="password" id="password" name="password">
+                </div> 
+                <div class="six columns">
+                    <label for="c_password">Confirm Password</label>
+                    <input class="u-full-width" type="password" id="c_password" name="c_password">
+                </div> 
+            </div>
+            <input type="submit" class="button-primary" value="REGISTER">
+        </form>
+    </div>
+    <div class="six columns">
+        <h4>Login</h4>
+        <form action="/login" method="post">
+            <div class="row">
+                <label for="email">Email Address</label>
+                <input class="u-full-width" type="text" id="email" name="email">
+            </div>
+            <div class="row">
+                <label for="password">Password</label>
+                <input class="u-full-width" type="password" id="password" name="password">
+            </div>
+            <input type="submit" class="button-primary" value="LOGIN">
+        </form>
+    </div>
+</body>
+</html>
