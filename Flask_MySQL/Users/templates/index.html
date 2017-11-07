@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RESTful Users</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Created_at</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{user['id']}}</td>
+                <td><a href="/users/{{user['id']}}">{{user['first_name']}} {{user['last_name']}}</a></td>
+                <td>{{user['email']}}</td>
+                <td>{{user['created_at'].strftime('%B %d, %Y')}}</td>
+                <td><a href="/users/{{user['id']}}">Show</a> | <a href="/users/{{user['id']}}/edit">Edit</a> | <a href="/users/{{user['id']}}/destroy">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/users/new">Add a User</a>
+</body>
+</html>
