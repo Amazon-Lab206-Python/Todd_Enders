@@ -1,0 +1,49 @@
+.row div:last-child {
+    text-align: right;
+    border-left: 5px solid black;
+    overflow: scroll;
+}
+.row>div {
+    height: 600px;
+}
+input[name="word"]{
+    border: 2px solid gray;
+    border-radius: 0px;
+}
+form p {
+    margin: 5px 0px;
+}
+.radios input {
+    margin-left: 20px;
+}
+input[value="Add to Session"] {
+    background-color: lightblue;
+    box-shadow: 5px 3px 3px black;
+    font-size: 16px;
+    color: black;    
+}
+input[value="Clear Session"] {
+    background-color: rgb(202, 96, 115);
+    box-shadow: 5px 3px 3px black;
+    margin-right: 10px;
+    font-size: 16px;
+    color: black;    
+}
+.green {
+    color: green;
+}
+.blue {
+    color: blue;
+}
+.red {
+    color: red;
+}
+.True {
+    font-size: 24px;
+}
+.False {
+    font-size: 16px;
+}
+span {
+    font-size: 10px;
+}

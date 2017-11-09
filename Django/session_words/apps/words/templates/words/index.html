@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Session Words</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link rel="stylesheet" href="{% static 'words/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div class="row">
+        <div class="one-half column">
+            <h4>Add a new word</h4>
+            <form action="/add_word" method="post">
+                {% csrf_token %}
+                <input type="text" name="word" class="u-full-width">
+                <p>Choose Color:</p>
+                <div class="radios">
+                    <input type="radio" name="color" value="red">Red<br>
+                    <input type="radio" name="color" value="blue">Blue<br>
+                    <input type="radio" name="color" value="green">Green<br> 
+                </div>
+                <input type="checkbox" name="big">Show in LARGE TEXT<br>
+                <input type="submit" value="Add to Session">
+            </form>
+        </div>
+        <div class="one-half column">
+            <form action="/clear" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Clear Session">
+            </form>
+            {% for word in request.session.words reversed %}
+            <p class="{{ word.color }} {{ word.big }}">{{word.word}} - <span>added on {{word.date}}</span></p>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
