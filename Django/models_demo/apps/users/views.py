@@ -11,3 +11,6 @@ def index(request):
         'all_users': all_users
     }
     return render(request, 'users/index.html', context)
+
+def new(request):
+    return render(request, 'users/new.html')
